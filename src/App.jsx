@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import ChangeGreetingInput from './ChangeGreetingInput'
+import DisplayMessage from './DisplayMessage'
 
 const App = props => {
 
@@ -8,13 +10,8 @@ const App = props => {
 	}
 	return (
 		<>
-			<h1>{props.message}</h1>
-			<input
-				type="text"
-				name="new-message"
-				placeholder='type your message here'
-				onBlur={event => props.dispatch({type: 'PREPARE_GREETING', payload: event.target.value})}
-			/>
+			<DisplayMessage />
+			<ChangeGreetingInput />
 			<button
 				onClick={changeMessage}
 			>Change message
@@ -23,10 +20,6 @@ const App = props => {
 	)
 }
 
-const mapStateToProps = (state) => {
-	return {
-		message: state.message
-	}
-}
 
-export default connect(mapStateToProps)(App);
+
+export default connect()(App);
