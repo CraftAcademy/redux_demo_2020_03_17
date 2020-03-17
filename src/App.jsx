@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 class App extends Component {
-	state = {
-		message: "Hello World from component state"
-	}
-	render() {
 
+	render() {
 		return (
 			<>
-				<h1>{this.props.state.message}</h1>
+				<h1>{this.props.message}</h1>
 			</>
 		);
 	}
@@ -17,7 +14,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		state: state
+		messsage: state.message
 	}
 }
 
