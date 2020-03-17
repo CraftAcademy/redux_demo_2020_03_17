@@ -4,11 +4,13 @@ import { connect } from 'react-redux'
 const App = props => {
 
 	const changeMessage = () => {
-		props.dispatch({ type: '', payload: 'Hello from a function' })
+		let inputField = document.querySelector('input[name="new-message"]')
+		props.dispatch({ type: '', payload: inputField.value })
 	}
 	return (
 		<>
 			<h1>{props.message}</h1>
+			<input type="text" name="new-message" placeholder='type your message here'/>
 			<button
 				onClick={changeMessage}
 			>Change message
