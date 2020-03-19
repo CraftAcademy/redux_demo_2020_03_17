@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import ChangeGreetingInput from './ChangeGreetingInput'
 import DisplayMessage from './DisplayMessage'
+import Login from './Login'
 
 const App = props => {
 
@@ -14,8 +15,11 @@ const App = props => {
 			<ChangeGreetingInput />
 			<button
 				onClick={changeMessage}
-			>Change message
+			>
+				Change message
 			</button>
+
+			<Login />
 		</>
 	)
 }

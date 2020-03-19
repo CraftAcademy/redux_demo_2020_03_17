@@ -1,0 +1,61 @@
+import React, { Component } from 'react'
+import auth from './modules/auth'
+
+class Login extends Component {
+  state = {
+    authenticated: false 
+  }
+
+  onLogin = async e => {
+    try {
+      e.preventDefault()
+      let response = await auth.signIn(e.target.elements.email.value, e.target.elements.password.value);
+      
+      this.setState({
+        authenticated: true,
+        userEmail: response.data.email
+      })
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  onLogout = () => {
+    auth.signOut()
+
+    this.setState({
+      authenticated: false 
+    })
+  }
+
+  render() {
+    let login
+
+    if (this.state.authenticated) {
+      login = (
+        <>
+          <p>Hello {this.state.userEmail}</p>
+          <button onClick={this.onLogout}>Logout</button>
+        </>
+      )
+    } else {
+      login = (
+        <form onSubmit={this.onLogin}>
+          <input name="email" placeholder="Email" />
+          <input name="password" type="password" placeholder="Password"/>
+          <button type="submit">
+            Login
+          </button>
+        </form>
+      )
+    }
+
+    return (
+      <div>
+        {login}
+      </div>
+    )
+  }
+}
+
+export default Login;
