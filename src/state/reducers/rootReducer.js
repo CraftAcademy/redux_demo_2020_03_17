@@ -12,6 +12,13 @@ const rootReducer = (state = initialState, action) => {
 				...state,
 				message: state.new_message
 			}
+		case 'AUTHENTICATE':
+			return {
+				...state,
+				// authenticated: action.payload.authenticated,
+				// userEmail: action.payload.userEmail
+				...action.payload
+			}
 		default:
 			return state
 	}
