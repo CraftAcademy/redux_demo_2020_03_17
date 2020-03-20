@@ -9,7 +9,7 @@ const DisplayMessage = props => {
 
 const mapStateToProps = (state) => {
 	return {
-		message: state.message
+		message: state.greetings.message
 	}
 }
 

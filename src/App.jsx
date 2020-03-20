@@ -33,7 +33,8 @@ const App = props => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchArticles: bindActionCreators(fetchArticles, dispatch)
+		fetchArticles: bindActionCreators(fetchArticles, dispatch),
+		dispatch: dispatch
 	}
 }
 
