@@ -1,4 +1,5 @@
 import initialState from '../store/initialState'
+import * as actionTypes from '../actions/actionTypes'
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -7,7 +8,7 @@ const rootReducer = (state = initialState, action) => {
 				...state,
 				new_message: action.payload
 			}
-		case 'CHANGE_GREETING':
+		case actionTypes.CHANGE_GREETING:
 			return {
 				...state,
 				message: state.new_message
@@ -19,6 +20,11 @@ const rootReducer = (state = initialState, action) => {
 				// userEmail: action.payload.userEmail
 				...action.payload
 			}
+			case actionTypes.GET_ARTICLE_DATA:
+				return {
+					...state,
+					...action.payload
+				}
 		default:
 			return state
 	}
