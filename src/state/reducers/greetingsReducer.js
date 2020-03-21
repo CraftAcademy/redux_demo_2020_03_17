@@ -11,7 +11,7 @@ const greetingsReducer = (greetings = initialState, action) => {
 		case actionTypes.CHANGE_GREETING:
 			return {
 				...greetings,
-				message: greetings.new_message
+				message: action.payload || greetings.new_message
 			}
 		default:
 			return greetings

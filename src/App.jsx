@@ -4,6 +4,7 @@ import ChangeGreetingInput from './ChangeGreetingInput'
 import DisplayMessage from './DisplayMessage'
 import DisplayArticles from './DisplayArticles'
 import Login from './Login'
+import HooksLogin from './HooksLogin'
 import { fetchArticles } from './state/actions/articleActions'
 import { bindActionCreators } from 'redux'
 import { CHANGE_GREETING } from './state/actions/actionTypes'
@@ -26,6 +27,7 @@ const App = props => {
 			</button>
 
 			<Login />
+			<HooksLogin />
 			<DisplayArticles />
 		</>
 	)
