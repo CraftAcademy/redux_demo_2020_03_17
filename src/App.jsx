@@ -1,20 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { useActions } from './state/useActions'
+import { useDispatch } from 'react-redux'
 import ChangeGreetingInput from './ChangeGreetingInput'
 import DisplayMessage from './DisplayMessage'
 import DisplayArticles from './DisplayArticles'
 import Login from './Login'
 import HooksLogin from './HooksLogin'
-import { fetchArticles } from './state/actions/articleActions'
-import { bindActionCreators } from 'redux'
+import * as articleActions from './state/actions/articleActions'
 import { CHANGE_GREETING } from './state/actions/actionTypes'
 
-const App = props => {
 
-	props.fetchArticles()
-
+const App = () => {
+	const Articles = useActions(articleActions)
+	const dispatch = useDispatch()
+	Articles.fetchArticles()
 	const changeMessage = () => {
-		props.dispatch({ type: CHANGE_GREETING })
+		dispatch({ type: CHANGE_GREETING })
 	}
 	return (
 		<>
@@ -33,11 +34,4 @@ const App = props => {
 	)
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		fetchArticles: bindActionCreators(fetchArticles, dispatch),
-		dispatch: dispatch
-	}
-}
-
-export default connect(null, mapDispatchToProps)(App);
+export default App

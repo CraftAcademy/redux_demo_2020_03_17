@@ -1,16 +1,20 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect} from 'react'
+import { useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const DisplayMessage = props => {
-	return (
-		<h1>{props.message}</h1>
-	)
+const DisplayMessage = () => {
+
+	const message = useSelector(state => state.greetings.message)
+	useEffect(()=>{
+		console.log(`message wass updated to ${message}`)
+	},[message])
+	useEffect(()=>{
+		console.log(`We mounted the component`)
+	},[message])
+
+	toast.info(message)
+	return <ToastContainer />
 }
 
-const mapStateToProps = (state) => {
-	return {
-		message: state.greetings.message
-	}
-}
-
-export default connect(mapStateToProps)(DisplayMessage)
+export default DisplayMessage

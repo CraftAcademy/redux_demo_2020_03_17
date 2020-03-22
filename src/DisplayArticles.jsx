@@ -1,34 +1,10 @@
-// import React, { Component } from 'react';
 import React from 'react'
-import { connect } from 'react-redux'
-// import { fetchArticles } from './state/actions/articleActions'
-// import { bindActionCreators } from 'redux'
+import { useSelector } from 'react-redux'
 
-// class DisplayArticles extends Component {
-
-// 	// componentDidMount() {
-// 	// 	this.props.fetchArticles()
-// 	// }
-
-// 	render() {
-// 		let articleDisplay = this.props.articles.map(article => {
-// 			return (
-// 				<h4 key={article.id}>{article.title}</h4>
-// 			)
-// 		})
-// 		return (
-// 			<>
-// 				{articleDisplay}
-// 			</>
-// 		);
-// 	}
-// }
-
-const DisplayArticles = props => {
-	let articleDisplay = props.articles.map(article => {
-		return (
-			<h4 key={article.id}>{article.title}</h4>
-		)
+const DisplayArticles = () => {
+	const articles = useSelector(state => state.news.articles)
+	let articleDisplay = articles.map(article => {
+		return <h4 key={article.id}>{article.title}</h4>
 	})
 
 	return (
@@ -38,16 +14,4 @@ const DisplayArticles = props => {
 	);
 }
 
-const mapStateToProps = state => {
-	return {
-		articles: state.news.articles
-	}
-}
-
-// const mapDispatchToProps = dispatch => {
-// 	return {
-// 		fetchArticles: bindActionCreators(fetchArticles, dispatch)
-// 	}
-// }
-
-export default connect(mapStateToProps)(DisplayArticles);
+export default DisplayArticles;
