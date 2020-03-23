@@ -9,7 +9,6 @@ import { bindActionCreators } from 'redux'
 import { CHANGE_GREETING } from './state/actions/actionTypes'
 
 const App = props => {
-
 	props.fetchArticles()
 
 	const changeMessage = () => {
@@ -33,7 +32,8 @@ const App = props => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchArticles: bindActionCreators(fetchArticles, dispatch)
+		fetchArticles: bindActionCreators(fetchArticles, dispatch),
+		dispatch: dispatch
 	}
 }
 

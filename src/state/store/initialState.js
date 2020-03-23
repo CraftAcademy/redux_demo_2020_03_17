@@ -1,6 +1,7 @@
-const initialState = {
+const initialGreeting = {
 	message: "Hello World from REDUX!",
-	articles: []
 }
 
-export default initialState
+const initialArticles = { articles: [] }
+
+export { initialGreeting, initialArticles }

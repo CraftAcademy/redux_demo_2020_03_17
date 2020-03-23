@@ -24,8 +24,8 @@ import { connect } from 'react-redux'
 // 	}
 // }
 
-const DisplayArticles = props => {
-	let articleDisplay = props.articles.map(article => {
+const DisplayArticles = ({...articles}) => {
+	let articleDisplay = articles.map(article => {
 		return (
 			<h4 key={article.id}>{article.title}</h4>
 		)
@@ -40,7 +40,7 @@ const DisplayArticles = props => {
 
 const mapStateToProps = state => {
 	return {
-		articles: state.articles
+		articles: state.news.articles
 	}
 }
 
