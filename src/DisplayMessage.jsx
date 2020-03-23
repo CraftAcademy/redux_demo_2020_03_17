@@ -7,11 +7,11 @@ const DisplayMessage = () => {
 
 	const message = useSelector(state => state.greetings.message)
 	useEffect(()=>{
-		console.log(`message wass updated to ${message}`)
+		console.log(`message was updated to ${message}`)
 	},[message])
 	useEffect(()=>{
 		console.log(`We mounted the component`)
-	},[message])
+	},[])
 
 	toast.info(message)
 	return <ToastContainer />
