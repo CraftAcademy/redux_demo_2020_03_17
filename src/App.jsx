@@ -11,12 +11,16 @@ import { CHANGE_GREETING } from './state/actions/actionTypes'
 
 
 const App = () => {
-	const Articles = useActions(articleActions)
+	debugger
+	const Article = useActions(articleActions)
 	const dispatch = useDispatch()
-	Articles.fetchArticles()
+
 	const changeMessage = () => {
 		dispatch({ type: CHANGE_GREETING })
 	}
+
+	Article.fetchCollection()
+
 	return (
 		<>
 			<DisplayMessage />
@@ -32,6 +36,7 @@ const App = () => {
 			<DisplayArticles />
 		</>
 	)
+
 }
 
 export default App

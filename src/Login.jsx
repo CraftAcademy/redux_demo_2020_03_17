@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import { auth } from './modules/auth'
 import { connect } from 'react-redux'
 
+
 class Login extends Component {
 	// state = {
 	//   authenticated: false
 	// }
+
+	// async onLogin() {
+
+	// }
+
 
 	onLogin = async e => {
 		try {
@@ -21,6 +27,10 @@ class Login extends Component {
 			console.log(error)
 		}
 	}
+
+	// onLogout() {
+
+	// }
 
 	onLogout = () => {
 		auth.signOut()
